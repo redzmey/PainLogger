@@ -6,9 +6,14 @@ namespace PainLogger.Model.Models
 {
     public class Pain : IElement
     {
+        public Pain()
+        {
+            Id = new Guid();
+        }
+
         public BodyPart BodyPart { get; set; }
         public BodySide BodySide { get; set; }
-        public PainType PainType { get; set; }
         public Guid Id { get; set; }
+        public PainType PainType { get; set; }
     }
 }

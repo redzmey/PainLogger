@@ -1,16 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 using PainLogger.Model.Interfaces;
 
 namespace PainLogger.Model.Models
 {
-    public class PainRecord : IElement
+    public class PainRecord : IElement, ITakenTime
     {
-        public double LastedHours => (TimeEnded - TimeStarted).TotalHours;
+        public PainRecord()
+        {
+            Id = new Guid();
+        }
+
+        public Guid Id { get; set; }
+        public double LastedHours => (TimeEnded - TakenTime).TotalHours;
         public int Level { get; set; }
 
+        public List<BloodPressureAndHeartRate> Measures { get; set; }
+
+        public List<Medication> Medications { get; set; }
+
         public Pain Pain { get; set; }
+        public DateTime TakenTime { get; set; }
         public DateTime TimeEnded { get; set; }
-        public DateTime TimeStarted { get; set; }
-        public Guid Id { get; set; }
     }
 }

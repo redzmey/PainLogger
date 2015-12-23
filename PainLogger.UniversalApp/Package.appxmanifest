@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="16488521-9511-4597-a14e-b11f74977476"
+    Name="3b607fd1-e2d9-453f-84bf-040648afa92e"
     Publisher="CN=Andrew"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="16488521-9511-4597-a14e-b11f74977476" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="3b607fd1-e2d9-453f-84bf-040648afa92e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>PainLogger</DisplayName>
+    <DisplayName>PainLogger.UniversalApp</DisplayName>
     <PublisherDisplayName>Andrew</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="PainLogger.App">
+      EntryPoint="PainLogger.UniversalApp.App">
       <uap:VisualElements
-        DisplayName="PainLogger"
+        DisplayName="PainLogger.UniversalApp"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="PainLogger"
+        Description="PainLogger.UniversalApp"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

@@ -110,6 +110,9 @@
     <Compile Include="Enums\BodyPart.cs" />
     <Compile Include="Enums\BodySide.cs" />
     <Compile Include="Interfaces\IElement.cs" />
+    <Compile Include="Interfaces\ITakenTime.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Models\BloodPressureAndHeartRate.cs" />
     <Compile Include="Models\Medication.cs" />
     <Compile Include="Models\Medicine.cs" />
     <Compile Include="Models\Pain.cs" />
@@ -117,11 +120,10 @@
     <Compile Include="Models\PainRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\MedicineRepository.cs" />
     <EmbeddedResource Include="Properties\PainLogger.Model.rd.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
