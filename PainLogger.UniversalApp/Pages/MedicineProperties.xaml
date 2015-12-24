@@ -1,0 +1,21 @@
+﻿<ContentDialog x:Name="MedicineDialog"
+    x:Class="PainLogger.UniversalApp.Pages.MedicineProperties"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PainLogger.UniversalApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Medicine"
+    PrimaryButtonText="Save"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="93" Margin="0,0,0,0" VerticalAlignment="Top">
+        <TextBlock x:Name="LblName" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
+        <AutoSuggestBox Name="TbxName" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="270"/>
+        </StackPanel>
+    </Grid>
+</ContentDialog>

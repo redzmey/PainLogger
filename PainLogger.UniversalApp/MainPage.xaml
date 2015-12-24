@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="PainLogger.UniversalApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PainLogger.UniversalApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton Icon="Accept" Label="appbarbutton" Click="AppBarButton_Click"/>
+            <AppBarButton Icon="Cancel" Label="appbarbutton"/>
+            <AppBarButton x:Name="BtnMedicine" Foreground="Black" Label="Medicine" Click="BtnMedicine_Click">
+                <AppBarButton.Icon>
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="M8.37721157073975,9.74810123443604L10.1272106170654,15.9343175888062 10.2336549758911,17.190788269043 9.85377311706543,18.3478260040283 9.06373310089111,19.2823257446289 7.9397029876709,19.871187210083 6.68332099914551,19.9773597717285 5.52649211883545,19.597505569458 4.59220170974731,18.8076190948486 4.0034351348877,17.6836948394775 2.25343632698059,11.4974575042725 8.37721157073975,9.74810123443604z M3.25344395637512,0L5.10469484329224,0.663983941078186 6.25281810760498,2.31187033653259 8.00220680236816,8.49810600280762 1.87843096256256,10.2480916976929 0.129042148590088,4.06185674667358 0.0225917380303144,2.80512833595276 0.402411580085754,1.64812242984772 1.19227123260498,0.713771283626556 2.31594038009644,0.125007316470146 3.25344395637512,0z" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="424" Margin="166,176,0,0" VerticalAlignment="Top" Width="652"/>
+
+    </Grid>
+</Page>

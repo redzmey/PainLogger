@@ -8,7 +8,7 @@ namespace PainLogger.Model.Models
     {
         public Pain()
         {
-            Id = new Guid();
+            Id = Guid.NewGuid();
         }
 
         public BodyPart BodyPart { get; set; }

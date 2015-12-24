@@ -7,7 +7,7 @@ namespace PainLogger.Model.Models
     {
         public BloodPressureAndHeartRate()
         {
-            Id = new Guid();
+            Id = Guid.NewGuid();
         }
 
         public int HeartRate { get; set; }

@@ -7,7 +7,9 @@ namespace PainLogger.Model.Models
     {
         public Medicine()
         {
-            Id = new Guid();
+            Id = Guid.NewGuid();
+            Name = "";
+            Dosage = 0;
         }
 
         public double Dosage { get; set; }
