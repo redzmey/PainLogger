@@ -6,7 +6,7 @@ namespace PainLogger.Model.Interfaces
 {
     public interface IRepository<T> where T : IElement
     {
-        void Create(T element);
+        void AddNew(T element);
         Task<List<T>> GetAll();
         T GetOne(Guid id);
         Task<bool> IsExistst(T element);

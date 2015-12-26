@@ -1,10 +1,9 @@
 ﻿using Windows.UI.Xaml.Controls;
-using PainLogger.Model.Models;
 using PainLogger.Model.Repositories;
 
 // The Content Dialog item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace PainLogger.UniversalApp.Pages
+namespace PainLogger.UniversalApp.Pages.MedicinePages
 {
     public sealed partial class MedicineProperties : ContentDialog
     {
@@ -17,9 +16,9 @@ namespace PainLogger.UniversalApp.Pages
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            Medicine medicine = new Medicine()
+            Model.Models.Medicine medicine = new Model.Models.Medicine()
             {Name = TbxName.Text.Trim()};
-            _repository.Create(medicine);
+            _repository.AddNew(medicine);
 
         }
 

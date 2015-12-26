@@ -13,12 +13,13 @@ namespace PainLogger.Model.Repositories
     {
         private readonly StorageFolder _localFolder = ApplicationData.Current.LocalFolder;
 
-        public virtual async void Create(T element)
+        public virtual async void AddNew(T element)
         {
+            List<T> list = await GetAll() ?? new List<T>();
+
             StorageFile textFile = await _localFolder.CreateFileAsync(typeof (T).ToString(),
                 
                                                                       CreationCollisionOption.ReplaceExisting);
-            List<T> list = await GetAll()??new List<T>();
             list.Add(element);
             string jsonContents = JsonConvert.SerializeObject(list);
             using (IRandomAccessStream textStream = await textFile.OpenAsync(FileAccessMode.ReadWrite))

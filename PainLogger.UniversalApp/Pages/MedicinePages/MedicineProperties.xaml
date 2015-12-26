@@ -1,5 +1,5 @@
 ﻿<ContentDialog x:Name="MedicineDialog"
-    x:Class="PainLogger.UniversalApp.Pages.MedicineProperties"
+    x:Class="PainLogger.UniversalApp.Pages.MedicinePages.MedicineProperties"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:PainLogger.UniversalApp"

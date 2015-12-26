@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Navigation;
 using PainLogger.Model.Models;
 using PainLogger.Model.Repositories;
 using PainLogger.UniversalApp.Pages;
+using PainLogger.UniversalApp.Pages.MedicinePages;
+using MedicineProperties = PainLogger.UniversalApp.Pages.MedicinePages.MedicineProperties;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -38,10 +40,7 @@ namespace PainLogger.UniversalApp
 
         private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            MedicineRepository repo = new MedicineRepository();
-            List<Medicine> ra = await repo.GetAll();
-            IEnumerable<string> res = ra.Select(x => x.Name);
-            listView.DataContext = res;
+            Frame.Navigate(typeof(MedicineList));
         }
     }
 }
