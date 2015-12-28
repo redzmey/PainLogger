@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Newtonsoft.Json;
@@ -18,7 +19,6 @@ namespace PainLogger.Model.Repositories
             List<T> list = await GetAll() ?? new List<T>();
 
             StorageFile textFile = await _localFolder.CreateFileAsync(typeof (T).ToString(),
-                
                                                                       CreationCollisionOption.ReplaceExisting);
             list.Add(element);
             string jsonContents = JsonConvert.SerializeObject(list);
@@ -34,8 +34,12 @@ namespace PainLogger.Model.Repositories
 
         public virtual async Task<List<T>> GetAll()
         {
+            if (await _localFolder.TryGetItemAsync(typeof(T).ToString()) == null)
+                return null;
+
             StorageFile textFile = await _localFolder.GetFileAsync(typeof (T).ToString());
             string content = await FileIO.ReadTextAsync(textFile);
+
             return JsonConvert.DeserializeObject<List<T>>(content);
         }
 

@@ -24,5 +24,10 @@ namespace PainLogger.UniversalApp.Pages.MedicinePages
             List<Medicine> medicines = await repository.GetAll();
             listView.ItemsSource = medicines;
         }
+
+        private void AppBarButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.GoBack();
+        }
     }
 }

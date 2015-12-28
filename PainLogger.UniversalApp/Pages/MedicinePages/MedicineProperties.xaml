@@ -15,7 +15,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="93" Margin="0,0,0,0" VerticalAlignment="Top">
         <TextBlock x:Name="LblName" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
-        <AutoSuggestBox Name="TbxName" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="270"/>
+        <TextBox Name="TbxName" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="270"/>
         </StackPanel>
     </Grid>
 </ContentDialog>

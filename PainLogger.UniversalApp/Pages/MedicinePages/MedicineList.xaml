@@ -10,8 +10,8 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton Icon="Back" Label="appbarbutton"/>
-            <AppBarButton Icon="Accept" Label="appbarbutton"/>
+            <AppBarButton x:Name="BtnBack" Icon="Back" Label="Back" Click="AppBarButton_Click"/>
+            <AppBarButton x:Name="BtnDelete" Icon="Delete" Label="Delete"/>
         </CommandBar>
     </Page.BottomAppBar>
 
@@ -22,7 +22,7 @@
         <ListView x:Name="listView" HorizontalAlignment="Left" Margin="10,100,50,10" VerticalAlignment="Top" >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel x:Name="stpLocationDetail">
+                    <StackPanel x:Name="stpLocationDetail" Width="{Binding Parent.Width, RelativeSource={RelativeSource Mode=Self}}">
                         <TextBlock Text="Name: " />
                         <TextBlock Text="{Binding Name}" FontWeight="Bold" />
                         <TextBlock Text="Dosage: " />
