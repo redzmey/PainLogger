@@ -106,11 +106,11 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\DataGridPageModel.cs" />
+    <Compile Include="Views\SampleListPage.xaml.cs">
+      <DependentUpon>SampleListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MedicinePage.xaml.cs">
       <DependentUpon>MedicinePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DataGridPage.xaml.cs">
-      <DependentUpon>DataGridPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -155,11 +155,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MedicinePage.xaml">
+    <Page Include="Views\SampleListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\DataGridPage.xaml">
+    <Page Include="Views\MedicinePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

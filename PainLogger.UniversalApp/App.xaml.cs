@@ -35,9 +35,9 @@ namespace PainLogger.UniversalApp
             };
             searchItem.QuerySubmitted += async (sender, args) =>
             {
-                await _hamburgerFrameBuilder.Frame.NavigateToExistingOrNewPageAsync(typeof (DataGridPage));
-                DataGridPage dataGridPage = (DataGridPage) _hamburgerFrameBuilder.Frame.CurrentPage.Page;
-                dataGridPage.Model.Filter = args.QueryText;
+                await _hamburgerFrameBuilder.Frame.NavigateToExistingOrNewPageAsync(typeof (MedicinePage));
+                MedicinePage medicinePage = (MedicinePage) _hamburgerFrameBuilder.Frame.CurrentPage.Page;
+                medicinePage.Model.Filter = args.QueryText;
             };
 
             _hamburgerFrameBuilder.Hamburger.Header = new HamburgerHeader();
@@ -63,14 +63,14 @@ namespace PainLogger.UniversalApp
                     Content = "Article",
                     ContentIcon = new SymbolIcon(Symbol.PreviewLink),
                     Icon = new SymbolIcon(Symbol.PreviewLink),
-                    PageType = typeof (MedicinePage)
+                    PageType = typeof (SampleListPage)
                 },
                 new PageHamburgerItem
                 {
-                    Content = "DataGrid",
-                    ContentIcon = new SymbolIcon(Symbol.ViewAll),
-                    Icon = new SymbolIcon(Symbol.ViewAll),
-                    PageType = typeof (DataGridPage)
+                    Content = "Medicine",
+                    ContentIcon = new SymbolIcon(Symbol.Help),
+                    Icon = new SymbolIcon(Symbol.Help),
+                    PageType = typeof (MedicinePage)
                 }
             };
             _hamburgerFrameBuilder.Hamburger.BottomItems = new ObservableCollection<HamburgerItem>
