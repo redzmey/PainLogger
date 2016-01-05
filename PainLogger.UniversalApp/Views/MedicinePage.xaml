@@ -1,21 +1,21 @@
-﻿<Page
-    x:Class="PainLogger.UniversalApp.Pages.MedicinePages.MedicineList"
+﻿<paging:MtPage
+    x:Class="PainLogger.UniversalApp.Views.MedicinePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:paging="using:MyToolkit.Paging"
+    xmlns:controls="using:MyToolkit.Controls"
     mc:Ignorable="d">
-    <Page.BottomAppBar>
+    <paging:MtPage.BottomAppBar>
         <CommandBar>
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton x:Name="BtnBack" Icon="Back" Label="Back" Click="AppBarButton_Click"/>
             <AppBarButton x:Name="BtnDelete" Icon="Delete" Label="Delete"/>
             <AppBarButton x:Name="BtnAddNew" Icon="Add" Label="Add" Click="BtnAddNew_Click"/>
-
         </CommandBar>
-    </Page.BottomAppBar>
+    </paging:MtPage.BottomAppBar>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock Text="Medicine list" Margin="0,0,0,0" Style="{ThemeResource HeaderTextBlockStyle}" 
@@ -34,4 +34,4 @@
             </ListView.ItemTemplate>
         </ListView>
     </Grid>
-</Page>
+</paging:MtPage>

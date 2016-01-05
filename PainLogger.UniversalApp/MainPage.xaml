@@ -11,7 +11,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <Controls:Hamburger>
                 <Controls:Hamburger.TopItems>
-                    <Controls:HamburgerItem Content="Medicine" Click="HamburgerItem_Click">
+                    <Controls:HamburgerItem Content="Medicine">
                     <Controls:HamburgerItem.Icon>
                         <SymbolIcon Symbol="Cut" />
                     </Controls:HamburgerItem.Icon>
