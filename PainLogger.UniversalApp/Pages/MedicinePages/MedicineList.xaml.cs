@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
 using PainLogger.Model.Models;
 using PainLogger.Model.Repositories;
@@ -18,16 +19,29 @@ namespace PainLogger.UniversalApp.Pages.MedicinePages
             LoadList();
         }
 
-        public async void LoadList()
-        {
-            MedicineRepository repository = new MedicineRepository();
-            List<Medicine> medicines = await repository.GetAll();
-            listView.ItemsSource = medicines;
-        }
-
         private void AppBarButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             Frame.GoBack();
+        }
+
+        private async void BtnAddNew_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            MedicineProperties medicineProperties = new MedicineProperties();
+            await medicineProperties.ShowAsync();
+        }
+
+        public async void LoadList()
+        {
+            try
+            {
+                MedicineRepository repository = new MedicineRepository();
+                List<Medicine> medicines = await repository.GetAll();
+
+                listView.ItemsSource = medicines;
+            }
+            catch (Exception ex)
+            {
+            }
         }
     }
 }

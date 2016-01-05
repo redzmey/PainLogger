@@ -12,6 +12,8 @@
             </CommandBar.Content>
             <AppBarButton x:Name="BtnBack" Icon="Back" Label="Back" Click="AppBarButton_Click"/>
             <AppBarButton x:Name="BtnDelete" Icon="Delete" Label="Delete"/>
+            <AppBarButton x:Name="BtnAddNew" Icon="Add" Label="Add" Click="BtnAddNew_Click"/>
+
         </CommandBar>
     </Page.BottomAppBar>
 

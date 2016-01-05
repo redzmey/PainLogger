@@ -32,15 +32,10 @@ namespace PainLogger.UniversalApp
             this.InitializeComponent();
         }
 
-        private async void BtnMedicine_Click(object sender, RoutedEventArgs e)
-        {
-            var medicineProperties = new MedicineProperties();
-            await medicineProperties.ShowAsync();
-        }
-
-        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private async void HamburgerItem_Click(object sender, MyToolkit.Controls.HamburgerItemClickedEventArgs e)
         {
             Frame.Navigate(typeof(MedicineList));
+
         }
     }
 }
