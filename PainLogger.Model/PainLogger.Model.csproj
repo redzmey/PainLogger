@@ -111,6 +111,7 @@
     <Compile Include="Enums\BodySide.cs" />
     <Compile Include="Interfaces\IElement.cs" />
     <Compile Include="Interfaces\ITakenTime.cs" />
+    <Compile Include="Repositories\PainRecordRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Models\BloodPressureAndHeartRate.cs" />
     <Compile Include="Models\Medication.cs" />

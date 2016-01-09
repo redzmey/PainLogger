@@ -101,7 +101,13 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MedicineProperties.xaml.cs">
+    <Compile Include="Views\Pain\PainProperties.xaml.cs">
+      <DependentUpon>PainProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pain\PainListPage.xaml.cs">
+      <DependentUpon>PainListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medicine\MedicineProperties.xaml.cs">
       <DependentUpon>MedicineProperties.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,14 +115,14 @@
     <Compile Include="Views\SampleListPage.xaml.cs">
       <DependentUpon>SampleListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MedicinePage.xaml.cs">
+    <Compile Include="Views\Medicine\MedicinePage.xaml.cs">
       <DependentUpon>MedicinePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MoviePage.xaml.cs">
-      <DependentUpon>MoviePage.xaml</DependentUpon>
+    <Compile Include="Views\CalendarPage.xaml.cs">
+      <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -151,7 +157,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MedicineProperties.xaml">
+    <Page Include="Views\Pain\PainProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pain\PainListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Medicine\MedicineProperties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,7 +173,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\MedicinePage.xaml">
+    <Page Include="Views\Medicine\MedicinePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -167,7 +181,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\MoviePage.xaml">
+    <Page Include="Views\CalendarPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

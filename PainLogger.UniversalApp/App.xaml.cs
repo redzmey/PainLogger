@@ -29,16 +29,16 @@ namespace PainLogger.UniversalApp
         {
             _hamburgerFrameBuilder = new HamburgerFrameBuilder();
 
-            SearchHamburgerItem searchItem = new SearchHamburgerItem
-            {
-                PlaceholderText = "Search"
-            };
-            searchItem.QuerySubmitted += async (sender, args) =>
-            {
-                await _hamburgerFrameBuilder.Frame.NavigateToExistingOrNewPageAsync(typeof (MedicinePage));
-                MedicinePage medicinePage = (MedicinePage) _hamburgerFrameBuilder.Frame.CurrentPage.Page;
-                medicinePage.Model.Filter = args.QueryText;
-            };
+            //SearchHamburgerItem searchItem = new SearchHamburgerItem
+            //{
+            //    PlaceholderText = "Search"
+            //};
+            //searchItem.QuerySubmitted += async (sender, args) =>
+            //{
+            //    await _hamburgerFrameBuilder.Frame.NavigateToExistingOrNewPageAsync(typeof (MedicinePage));
+            //    MedicinePage medicinePage = (MedicinePage) _hamburgerFrameBuilder.Frame.CurrentPage.Page;
+            //    //medicinePage.Model.Filter = args.QueryText;
+            //};
 
             _hamburgerFrameBuilder.Hamburger.Header = new HamburgerHeader();
             _hamburgerFrameBuilder.Hamburger.TopItems = new ObservableCollection<HamburgerItem>
@@ -50,20 +50,20 @@ namespace PainLogger.UniversalApp
                     Icon = new SymbolIcon(Symbol.Home),
                     PageType = typeof (SampleUwpApp.Views.MainPage)
                 },
-                searchItem,
+             //   searchItem,
                 new PageHamburgerItem
                 {
-                    Content = "Movie",
+                    Content = "Pain",
                     ContentIcon = new SymbolIcon(Symbol.Video),
                     Icon = new SymbolIcon(Symbol.Video),
-                    PageType = typeof (MoviePage)
+                    PageType = typeof (PainListPage)
                 },
                 new PageHamburgerItem
                 {
-                    Content = "Article",
+                    Content = "Calendar",
                     ContentIcon = new SymbolIcon(Symbol.PreviewLink),
                     Icon = new SymbolIcon(Symbol.PreviewLink),
-                    PageType = typeof (SampleListPage)
+                    PageType = typeof (CalendarPage)
                 },
                 new PageHamburgerItem
                 {
