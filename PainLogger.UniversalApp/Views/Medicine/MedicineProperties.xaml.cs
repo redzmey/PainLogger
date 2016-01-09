@@ -1,5 +1,6 @@
 ﻿using System;
 using Windows.UI.Xaml.Controls;
+using MyToolkit.UI;
 using PainLogger.Model.Repositories;
 
 // The Content Dialog item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -24,6 +25,7 @@ namespace PainLogger.UniversalApp.Views
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
+            this.ClosePopup();
         }
     }
 }

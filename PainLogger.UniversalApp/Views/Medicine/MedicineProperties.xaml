@@ -10,7 +10,8 @@
     PrimaryButtonText="Save"
     SecondaryButtonText="Cancel"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick" FullSizeDesired="True" Height="640" MinHeight="200" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick" 
+               Height="640" MinHeight="200" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
 
         <StackPanel HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
         <TextBlock x:Name="LblName" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>

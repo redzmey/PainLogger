@@ -18,7 +18,7 @@
                 <Grid/>
             </CommandBar.Content>
             <AppBarButton x:Name="BtnDelete" Icon="Delete" Label="Delete"/>
-            <AppBarButton x:Name="BtnAddNew" Icon="Add" Label="Add" Click="BtnAddNew_Click_1"/>
+            <AppBarButton x:Name="BtnAddNew" Icon="Add" Label="Add" Click="BtnAddNew_Click"/>
         </CommandBar>
     </paging:MtPage.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" DataContext="{StaticResource ViewModel}">
@@ -36,10 +36,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel x:Name="stpLocationDetail" Width="{Binding Parent.Width, RelativeSource={RelativeSource Mode=Self}}">
-                            <TextBlock Text="Name: " />
-                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
-                            <TextBlock Text="Dosage: " />
-                            <TextBlock Text="{Binding Dosage}"/>
+                            <TextBlock Text="Date: " />
+                            <DatePicker Date="{Binding TakenTime}" />
+                            <TextBlock Text="Level: " />
+                            <TextBlock Text="{Binding Level}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

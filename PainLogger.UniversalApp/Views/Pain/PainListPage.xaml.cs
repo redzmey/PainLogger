@@ -30,8 +30,8 @@ namespace PainLogger.UniversalApp.Views
 
         private async void BtnAddNew_Click(object sender, RoutedEventArgs e)
         {
-            MedicineProperties medicineProperties = new MedicineProperties();
-            await medicineProperties.ShowAsync();
+            PainPropertiesPage painPropertiesPage = new PainPropertiesPage();
+            await painPropertiesPage.ShowAsync();
             LoadList();
         }
 
@@ -39,10 +39,10 @@ namespace PainLogger.UniversalApp.Views
         {
             try
             {
-                MedicineRepository repository = new MedicineRepository();
-                List<Medicine> medicines = await repository.GetAll();
+                PainRecordRepository repository = new PainRecordRepository();
+                List<PainRecord> painRecords = await repository.GetAll();
 
-                listView.ItemsSource = medicines;
+                listView.ItemsSource = painRecords;
             }
             catch (Exception ex)
             {
@@ -57,11 +57,6 @@ namespace PainLogger.UniversalApp.Views
         protected override void OnSaveState(MtSaveStateEventArgs pageState)
         {
             pageState.Set("Filter", Model.Filter);
-        }
-
-        private void BtnAddNew_Click_1(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
