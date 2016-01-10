@@ -101,6 +101,12 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Medication\MedicationPage.xaml.cs">
+      <DependentUpon>MedicationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medication\MedicationProperties.xaml.cs">
+      <DependentUpon>MedicationProperties.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pain\PainPropertiesPage.xaml.cs">
       <DependentUpon>PainPropertiesPage.xaml</DependentUpon>
     </Compile>
@@ -156,6 +162,14 @@
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Medication\MedicationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Medication\MedicationProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Pain\PainPropertiesPage.xaml">
       <Generator>MSBuild:Compile</Generator>

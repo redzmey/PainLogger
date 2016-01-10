@@ -23,9 +23,8 @@ namespace PainLogger.UniversalApp.Views
         {
             DateTime started = new DateTime(StartDate.Date.Year, StartDate.Date.Month, StartDate.Date.Day, StartTime.Time.Hours, StartTime.Time.Minutes, StartTime.Time.Seconds);
             int level = Convert.ToInt32(TbxLevel.Text);
-            BloodPressureAndHeartRate bloodPressure = new BloodPressureAndHeartRate {HeartRate = 110, HighPressure = 120, LowerPressure = 80, TakenTime = started };
-            List<BloodPressureAndHeartRate> measures = new List<BloodPressureAndHeartRate> {bloodPressure};
-            PainRecord newPainRecord = new PainRecord {Level = level, TakenTime = started, Measures = measures};
+
+            PainRecord newPainRecord = new PainRecord {Level = level, TakenTime = started};
             _repository.AddNew(newPainRecord);
         }
 

@@ -71,6 +71,13 @@ namespace PainLogger.UniversalApp
                     ContentIcon = new SymbolIcon(Symbol.Help),
                     Icon = new SymbolIcon(Symbol.Help),
                     PageType = typeof (MedicinePage)
+                },
+                                new PageHamburgerItem
+                {
+                    Content = "Medication",
+                    ContentIcon = new SymbolIcon(Symbol.Help),
+                    Icon = new SymbolIcon(Symbol.Help),
+                    PageType = typeof (MedicationPage)
                 }
             };
             _hamburgerFrameBuilder.Hamburger.BottomItems = new ObservableCollection<HamburgerItem>
