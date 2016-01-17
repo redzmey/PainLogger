@@ -1,7 +1,9 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-    "MyToolkit.Extended": "2.5.9"
+    "Microsoft.OneDriveSDK": "1.1.29",
+    "MyToolkit.Extended": "2.5.9",
+    "WPFOneDriveLibrary": "1.0.3"
   },
   "frameworks": {
     "uap10.0": {}

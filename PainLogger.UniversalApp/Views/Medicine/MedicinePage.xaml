@@ -14,7 +14,8 @@
     <paging:MtPage.BottomAppBar>
 
         <CommandBar DataContext="{StaticResource ViewModel}">
-            <AppBarButton x:Name="BtnDelete" Icon="Delete" Label="Delete" Command="{x:Bind Model.DeleteMedicineAsync}" CommandParameter="{Binding SelectedMedicine}"/>
+            <AppBarButton x:Name="BtnDelete" Icon="Delete" Label="Delete" />
+            <!--Command="{x:Bind Model.DeleteMedicineAsync}" CommandParameter="{Binding SelectedMedicine}"-->
             <AppBarButton x:Name="BtnAddNew" Icon="Add" Label="Add" Click="BtnAddNew_Click"/>
             <AppBarButton x:Name="BtnEdit" Icon="Edit" Label="Edit" Click="BtnEdit_OnClick"/>
         </CommandBar>

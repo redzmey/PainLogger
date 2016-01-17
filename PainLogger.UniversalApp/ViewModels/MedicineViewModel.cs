@@ -23,8 +23,8 @@ namespace PainLogger.UniversalApp.ViewModels
 
         public MedicineViewModel()
         {
-            DoItCommand = new RelayCommand(DoIt);
-            DeleteMedicineAsync = new AsyncRelayCommand<Medicine>(DeleteAsync, medicine=> medicine != null);
+      //      DoItCommand = new RelayCommand(DoIt);
+          //  DeleteMedicineAsync = new AsyncRelayCommand<Medicine>(DeleteAsync, medicine=> medicine != null);
 
             AllElements = new MtObservableCollection<Medicine>();
             FilteredElements = new ObservableCollectionView<Medicine>(AllElements);
