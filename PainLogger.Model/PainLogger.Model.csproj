@@ -112,6 +112,8 @@
     <Compile Include="Interfaces\IElement.cs" />
     <Compile Include="Interfaces\ITakenTime.cs" />
     <Compile Include="Repositories\MedicationRepository.cs" />
+    <Compile Include="Repositories\BloodPressureRepository.cs" />
+    <Compile Include="Repositories\PainRepository.cs" />
     <Compile Include="Repositories\PainRecordRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Models\BloodPressureAndHeartRate.cs" />
@@ -125,7 +127,11 @@
     <Compile Include="Repositories\MedicineRepository.cs" />
     <EmbeddedResource Include="Properties\PainLogger.Model.rd.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="MyToolkit">
+      <HintPath>..\..\..\..\..\.nuget\packages\MyToolkit\2.5.8\lib\portable-net45+wp8+win8+wpa81\MyToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

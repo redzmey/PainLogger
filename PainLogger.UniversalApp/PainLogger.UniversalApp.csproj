@@ -101,6 +101,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\NotificationBase.cs" />
     <Compile Include="Views\Medication\MedicationPage.xaml.cs">
       <DependentUpon>MedicationPage.xaml</DependentUpon>
     </Compile>
@@ -117,7 +118,7 @@
       <DependentUpon>MedicineProperties.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\DataGridPageModel.cs" />
+    <Compile Include="ViewModels\MedicineViewModel.cs" />
     <Compile Include="Views\SampleListPage.xaml.cs">
       <DependentUpon>SampleListPage.xaml</DependentUpon>
     </Compile>

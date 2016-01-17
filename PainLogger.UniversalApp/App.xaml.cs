@@ -27,69 +27,62 @@ namespace PainLogger.UniversalApp
 
         public override FrameworkElement CreateWindowContentElement()
         {
-            _hamburgerFrameBuilder = new HamburgerFrameBuilder();
-
-            //SearchHamburgerItem searchItem = new SearchHamburgerItem
-            //{
-            //    PlaceholderText = "Search"
-            //};
-            //searchItem.QuerySubmitted += async (sender, args) =>
-            //{
-            //    await _hamburgerFrameBuilder.Frame.NavigateToExistingOrNewPageAsync(typeof (MedicinePage));
-            //    MedicinePage medicinePage = (MedicinePage) _hamburgerFrameBuilder.Frame.CurrentPage.Page;
-            //    //medicinePage.Model.Filter = args.QueryText;
-            //};
-
-            _hamburgerFrameBuilder.Hamburger.Header = new HamburgerHeader();
-            _hamburgerFrameBuilder.Hamburger.TopItems = new ObservableCollection<HamburgerItem>
+            _hamburgerFrameBuilder = new HamburgerFrameBuilder
             {
-                new PageHamburgerItem
+                Hamburger =
                 {
-                    Content = "Home",
-                    ContentIcon = new SymbolIcon(Symbol.Home),
-                    Icon = new SymbolIcon(Symbol.Home),
-                    PageType = typeof (SampleUwpApp.Views.MainPage)
-                },
-             //   searchItem,
-                new PageHamburgerItem
-                {
-                    Content = "Pain",
-                    ContentIcon = new SymbolIcon(Symbol.Video),
-                    Icon = new SymbolIcon(Symbol.Video),
-                    PageType = typeof (PainListPage)
-                },
-                new PageHamburgerItem
-                {
-                    Content = "Calendar",
-                    ContentIcon = new SymbolIcon(Symbol.PreviewLink),
-                    Icon = new SymbolIcon(Symbol.PreviewLink),
-                    PageType = typeof (CalendarPage)
-                },
-                new PageHamburgerItem
-                {
-                    Content = "Medicine",
-                    ContentIcon = new SymbolIcon(Symbol.Help),
-                    Icon = new SymbolIcon(Symbol.Help),
-                    PageType = typeof (MedicinePage)
-                },
-                                new PageHamburgerItem
-                {
-                    Content = "Medication",
-                    ContentIcon = new SymbolIcon(Symbol.Help),
-                    Icon = new SymbolIcon(Symbol.Help),
-                    PageType = typeof (MedicationPage)
+                    Header = new HamburgerHeader(),
+                    TopItems = new ObservableCollection<HamburgerItem>
+                    {
+                        //new PageHamburgerItem
+                        //{
+                        //    Content = "Home",
+                        //    ContentIcon = new SymbolIcon(Symbol.Home),
+                        //    Icon = new SymbolIcon(Symbol.Home),
+                        //    PageType = typeof (SampleUwpApp.Views.MainPage)
+                        //},
+                        //new PageHamburgerItem
+                        //{
+                        //    Content = "Pain",
+                        //    ContentIcon = new SymbolIcon(Symbol.Video),
+                        //    Icon = new SymbolIcon(Symbol.Video),
+                        //    PageType = typeof (PainListPage)
+                        //},
+                        //new PageHamburgerItem
+                        //{
+                        //    Content = "Calendar",
+                        //    ContentIcon = new SymbolIcon(Symbol.PreviewLink),
+                        //    Icon = new SymbolIcon(Symbol.PreviewLink),
+                        //    PageType = typeof (CalendarPage)
+                        //},
+                        new PageHamburgerItem
+                        {
+                            Content = "Medicine",
+                            ContentIcon = new SymbolIcon(Symbol.Dislike),
+                            Icon = new SymbolIcon(Symbol.Dislike),
+                            PageType = typeof (MedicinePage)
+                        },
+                        //new PageHamburgerItem
+                        //{
+                        //    Content = "Medication",
+                        //    ContentIcon = new SymbolIcon(Symbol.Help),
+                        //    Icon = new SymbolIcon(Symbol.Help),
+                        //    PageType = typeof (MedicationPage)
+                        //}
+                    },
+                    BottomItems = new ObservableCollection<HamburgerItem>
+                    {
+                        new PageHamburgerItem
+                        {
+                            Content = "Settings",
+                            ContentIcon = new SymbolIcon(Symbol.Setting),
+                            Icon = new SymbolIcon(Symbol.Setting),
+                            PageType = typeof (SettingsPage)
+                        }
+                    }
                 }
             };
-            _hamburgerFrameBuilder.Hamburger.BottomItems = new ObservableCollection<HamburgerItem>
-            {
-                new PageHamburgerItem
-                {
-                    Content = "Settings",
-                    ContentIcon = new SymbolIcon(Symbol.Setting),
-                    Icon = new SymbolIcon(Symbol.Setting),
-                    PageType = typeof (SettingsPage)
-                }
-            };
+
             _hamburgerFrameBuilder.Frame.PageAnimation = new ScalePageTransition();
             return _hamburgerFrameBuilder.Hamburger;
         }

@@ -26,7 +26,7 @@ namespace PainLogger.UniversalApp.Views
             LoadList();
         }
 
-        public DataGridPageModel Model => (DataGridPageModel) Resources["ViewModel"];
+        public MedicineViewModel Model => (MedicineViewModel) Resources["ViewModel"];
 
         private async void BtnAddNew_Click(object sender, RoutedEventArgs e)
         {

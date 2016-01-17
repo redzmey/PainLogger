@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Newtonsoft.Json;
@@ -12,15 +11,62 @@ namespace PainLogger.Model.Repositories
 {
     public abstract class Repository<T> : IRepository<T> where T : IElement
     {
-        private readonly StorageFolder _localFolder = ApplicationData.Current.LocalFolder;
+        private static readonly StorageFolder _localFolder = ApplicationData.Current.LocalFolder;
+        private List<T> _elementsList;
 
-        public virtual async void AddNew(T element)
+        public List<T> ElementsList
         {
-            List<T> list = await GetAll() ?? new List<T>();
+            get { return _elementsList ?? GetAll().Result; }
+            set { _elementsList = value; }
+        }
 
+        public static StorageFolder LocalFolder => _localFolder;
+
+        public virtual async Task AddNew(T element, List<T> list = null)
+        {
+            ElementsList = list;
+            if (await IsExistst(element) == false)
+            {
+                list?.Add(element);
+                await WriteFile(list);
+            }
+        }
+
+        public virtual async Task Delete(T element, List<T> list = null)
+        {
+            ElementsList = list;
+            if (await IsExistst(element) == true)
+            {
+                list?.Remove(element);
+                await WriteFile(list);
+            }
+        }
+
+        public virtual async Task<List<T>> GetAll()
+        {
+            if (await _localFolder.TryGetItemAsync(typeof (T).ToString()) == null)
+                return null;
+
+            StorageFile textFile = await _localFolder.GetFileAsync(typeof (T).ToString());
+            string content = await FileIO.ReadTextAsync(textFile);
+
+            return JsonConvert.DeserializeObject<List<T>>(content);
+        }
+
+        //public virtual T GetOne(Guid id)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public virtual async Task<bool> IsExistst(T element)
+        {
+            return ElementsList.Any(x => x.Id == element.Id);
+        }
+
+        private static async Task WriteFile(List<T> list)
+        {
             StorageFile textFile = await _localFolder.CreateFileAsync(typeof (T).ToString(),
-                                                                      CreationCollisionOption.ReplaceExisting);
-            list.Add(element);
+                                                                     CreationCollisionOption.ReplaceExisting);
             string jsonContents = JsonConvert.SerializeObject(list);
             using (IRandomAccessStream textStream = await textFile.OpenAsync(FileAccessMode.ReadWrite))
             {
@@ -32,32 +78,10 @@ namespace PainLogger.Model.Repositories
             }
         }
 
-        public virtual async Task<List<T>> GetAll()
-        {
-            if (await _localFolder.TryGetItemAsync(typeof(T).ToString()) == null)
-                return null;
+        //}
+        //    throw new NotImplementedException();
+        //{
 
-            StorageFile textFile = await _localFolder.GetFileAsync(typeof (T).ToString());
-            string content = await FileIO.ReadTextAsync(textFile);
-
-            return JsonConvert.DeserializeObject<List<T>>(content);
-        }
-
-        public virtual T GetOne(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual async Task<bool> IsExistst(T element)
-        {
-            List<T> all = await GetAll();
-
-            return all.Any(x => x.Id == element.Id);
-        }
-
-        public virtual void Update(T element)
-        {
-            throw new NotImplementedException();
-        }
+        //public virtual void Update(T element)
     }
 }

@@ -8,67 +8,38 @@
     xmlns:controls="using:MyToolkit.Controls"
     xmlns:viewModels="using:PainLogger.UniversalApp.ViewModels"
     mc:Ignorable="d">
-
     <paging:MtPage.Resources>
-        <viewModels:DataGridPageModel x:Key="ViewModel" />
+        <viewModels:MedicineViewModel x:Key="ViewModel" />
     </paging:MtPage.Resources>
     <paging:MtPage.BottomAppBar>
-        <CommandBar>
-            <CommandBar.Content>
-                <Grid/>
-            </CommandBar.Content>
-            <AppBarButton x:Name="BtnDelete" Icon="Delete" Label="Delete"/>
+
+        <CommandBar DataContext="{StaticResource ViewModel}">
+            <AppBarButton x:Name="BtnDelete" Icon="Delete" Label="Delete" Command="{x:Bind Model.DeleteMedicineAsync}" CommandParameter="{Binding SelectedMedicine}"/>
             <AppBarButton x:Name="BtnAddNew" Icon="Add" Label="Add" Click="BtnAddNew_Click"/>
+            <AppBarButton x:Name="BtnEdit" Icon="Edit" Label="Edit" Click="BtnEdit_OnClick"/>
         </CommandBar>
     </paging:MtPage.BottomAppBar>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" DataContext="{StaticResource ViewModel}">
-        <Grid Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-            <StackPanel>
-                <AutoSuggestBox Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                PlaceholderText="Filter" Margin="0,0,0,16" AutoMaximizeSuggestionArea="False" />
-            </StackPanel>
-            <ListView x:Name="listView" HorizontalAlignment="Left" Margin="10,100,50,10" VerticalAlignment="Top" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel x:Name="stpLocationDetail" Width="{Binding Parent.Width, RelativeSource={RelativeSource Mode=Self}}">
-                            <TextBlock Text="Name: " />
-                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
-                            <TextBlock Text="Dosage: " />
-                            <TextBlock Text="{Binding Dosage}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <!--<controls:DataGrid x:Name="DataGrid" Grid.Row="1" 
-                           ItemsSource="{Binding People}" 
-                           SelectionMode="Multiple" 
-                           SelectedItem="{Binding SelectedPerson, Mode=TwoWay}"
-                           DefaultOrderIndex="1">
-                <controls:DataGrid.Columns>
-                    <controls:DataGridTextColumn Width="*" Header="Firstname" Binding="{Binding FirstName}" />
-                    <controls:DataGridTextColumn Width="*" Binding="{Binding LastName}" IsAscendingDefault="False">
-                        <controls:DataGridTextColumn.Header>
-                            <TextBlock Text="Lastname" Foreground="Green" />
-                        </controls:DataGridTextColumn.Header>
-                    </controls:DataGridTextColumn>
-                    <controls:DataGridTextColumn Width="2*" Header="Category" Binding="{Binding Category}" />
-                </controls:DataGrid.Columns>
-                <controls:DataGrid.ItemDetailsTemplate>
-                    <DataTemplate>
-                        <StackPanel Margin="12,0,12,12">
-                            <TextBlock Text="Details: " FontWeight="Bold" />
-                            <TextBlock Text="{Binding FirstName}" />
-                            <TextBlock Text="{Binding LastName}" />
-                            <TextBlock Text="{Binding Category}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </controls:DataGrid.ItemDetailsTemplate>
-            </controls:DataGrid>-->
-        </Grid>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  Height="385" Width="360"
+          DataContext="{StaticResource ViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="80*"/>
+        </Grid.RowDefinitions>
+        <AutoSuggestBox x:Name="TbxFilter" HorizontalAlignment="Left" Text="{x:Bind Model.Filter, Mode=TwoWay}" 
+                        VerticalAlignment="Top" Width="360" Height="40" Grid.Row="0"/>
+        <controls:MtListView x:Name="MedicinesListView" ItemsSource="{x:Bind Model.FilteredElements}" 
+                      SelectedItem="{Binding SelectedMedicine, Mode=TwoWay}" Grid.Row="1">
+            <controls:MtListView.ItemTemplate>
+                <DataTemplate x:DataType="viewModels:MedicineViewModel">
+                    <StackPanel x:Name="MedicineDetailsStackPanel" >
+                        <TextBlock Text="Name: " />
+                        <TextBlock Text="{x:Bind SelectedMedicine.Name}" FontWeight="Bold" />
+                        <TextBlock Text="Dosage: " />
+                        <TextBlock Text="{x:Bind SelectedMedicine.Dosage}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </controls:MtListView.ItemTemplate>
+        </controls:MtListView>
+        
     </Grid>
 </paging:MtPage>

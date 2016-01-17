@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
     <paging:MtPage.Resources>
-        <viewModels:DataGridPageModel x:Key="ViewModel" />
+        <viewModels:MedicineViewModel x:Key="ViewModel" />
     </paging:MtPage.Resources>
     <paging:MtPage.BottomAppBar>
         <CommandBar>
