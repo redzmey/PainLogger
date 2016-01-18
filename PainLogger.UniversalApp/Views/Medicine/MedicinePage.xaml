@@ -14,7 +14,7 @@
     <paging:MtPage.BottomAppBar>
 
         <CommandBar DataContext="{StaticResource ViewModel}">
-            <AppBarButton x:Name="BtnDelete" Icon="Delete" Label="Delete" />
+            <AppBarButton x:Name="BtnDelete" Icon="Delete" Label="Delete" /> 
             <!--Command="{x:Bind Model.DeleteMedicineAsync}" CommandParameter="{Binding SelectedMedicine}"-->
             <AppBarButton x:Name="BtnAddNew" Icon="Add" Label="Add" Click="BtnAddNew_Click"/>
             <AppBarButton x:Name="BtnEdit" Icon="Edit" Label="Edit" Click="BtnEdit_OnClick"/>
@@ -26,21 +26,21 @@
             <RowDefinition Height="12*"/>
             <RowDefinition Height="80*"/>
         </Grid.RowDefinitions>
-        <AutoSuggestBox x:Name="TbxFilter" HorizontalAlignment="Left" Text="{x:Bind Model.Filter, Mode=TwoWay}" 
+        <AutoSuggestBox x:Name="TbxFilter" HorizontalAlignment="Left" Text="{Binding Filter, Mode=TwoWay}" 
                         VerticalAlignment="Top" Width="360" Height="40" Grid.Row="0"/>
-        <controls:MtListView x:Name="MedicinesListView" ItemsSource="{x:Bind Model.FilteredElements}" 
+        <controls:MtListView x:Name="MedicinesListView" ItemsSource="{Binding FilteredElements}" 
                       SelectedItem="{Binding SelectedMedicine, Mode=TwoWay}" Grid.Row="1">
             <controls:MtListView.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:MedicineViewModel">
                     <StackPanel x:Name="MedicineDetailsStackPanel" >
                         <TextBlock Text="Name: " />
-                        <TextBlock Text="{x:Bind SelectedMedicine.Name}" FontWeight="Bold" />
+                        <TextBlock Text="{Binding SelectedMedicine.Name}" FontWeight="Bold" />
                         <TextBlock Text="Dosage: " />
-                        <TextBlock Text="{x:Bind SelectedMedicine.Dosage}"/>
+                        <TextBlock Text="{Binding SelectedMedicine.Dosage}"/>
                     </StackPanel>
                 </DataTemplate>
             </controls:MtListView.ItemTemplate>
         </controls:MtListView>
-        
+
     </Grid>
 </paging:MtPage>

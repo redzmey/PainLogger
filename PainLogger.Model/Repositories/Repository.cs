@@ -11,7 +11,6 @@ namespace PainLogger.Model.Repositories
 {
     public abstract class Repository<T> : IRepository<T> where T : IElement
     {
-        private static readonly StorageFolder _localFolder = ApplicationData.Current.LocalFolder;
         private List<T> _elementsList;
 
         public List<T> ElementsList
@@ -20,7 +19,7 @@ namespace PainLogger.Model.Repositories
             set { _elementsList = value; }
         }
 
-        public static StorageFolder LocalFolder => _localFolder;
+        public static StorageFolder LocalFolder => ApplicationData.Current.LocalFolder;
 
         public virtual async Task AddNew(T element, List<T> list = null)
         {
@@ -44,10 +43,10 @@ namespace PainLogger.Model.Repositories
 
         public virtual async Task<List<T>> GetAll()
         {
-            if (await _localFolder.TryGetItemAsync(typeof (T).ToString()) == null)
+            if (await LocalFolder.TryGetItemAsync(typeof (T).ToString()) == null)
                 return null;
 
-            StorageFile textFile = await _localFolder.GetFileAsync(typeof (T).ToString());
+            StorageFile textFile = await LocalFolder.GetFileAsync(typeof (T).ToString());
             string content = await FileIO.ReadTextAsync(textFile);
 
             return JsonConvert.DeserializeObject<List<T>>(content);
@@ -65,7 +64,7 @@ namespace PainLogger.Model.Repositories
 
         private static async Task WriteFile(List<T> list)
         {
-            StorageFile textFile = await _localFolder.CreateFileAsync(typeof (T).ToString(),
+            StorageFile textFile = await LocalFolder.CreateFileAsync(typeof (T).ToString(),
                                                                      CreationCollisionOption.ReplaceExisting);
             string jsonContents = JsonConvert.SerializeObject(list);
             using (IRandomAccessStream textStream = await textFile.OpenAsync(FileAccessMode.ReadWrite))

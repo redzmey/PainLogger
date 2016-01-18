@@ -23,11 +23,11 @@ namespace PainLogger.UniversalApp.ViewModels
 
         public MedicineViewModel()
         {
-      //      DoItCommand = new RelayCommand(DoIt);
-          //  DeleteMedicineAsync = new AsyncRelayCommand<Medicine>(DeleteAsync, medicine=> medicine != null);
-
-            AllElements = new MtObservableCollection<Medicine>();
+            //    DoItCommand = new RelayCommand(DoIt);
+            //  DeleteMedicineAsync = new AsyncRelayCommand<Medicine>(DeleteAsync, medicine => medicine != null);
+              AllElements = new MtObservableCollection<Medicine>();
             FilteredElements = new ObservableCollectionView<Medicine>(AllElements);
+
         }
 
         public AsyncRelayCommand<Medicine> DeleteMedicineAsync { get; private set; }
@@ -56,7 +56,7 @@ namespace PainLogger.UniversalApp.ViewModels
         private async Task DeleteAsync(Medicine medicine)
         {
             await _repository.Delete(medicine);
-            AllElements.Initialize(_repository.GetAll().Result);
+            //AllElements.Initialize(_repository.GetAll().Result);
         }
 
         private void DoIt()
@@ -68,7 +68,8 @@ namespace PainLogger.UniversalApp.ViewModels
         {
             base.Initialize();
             _repository = new MedicineRepository();
-            AllElements.Initialize(_repository.GetAll().Result);
+            IEnumerable<Medicine> a = _repository.GetAll().Result.AsEnumerable();
+            AllElements.Initialize(a);
         }
     }
 }
