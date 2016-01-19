@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PainLogger.Model", "PainLog
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PainLogger.UniversalApp", "PainLogger.UniversalApp\PainLogger.UniversalApp.csproj", "{77BA98E7-D620-4694-954C-92A04D7B591B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PainLogger.Unittest", "PainLogger.Unittest\PainLogger.Unittest.csproj", "{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,26 @@ Global
 		{77BA98E7-D620-4694-954C-92A04D7B591B}.Release|x86.ActiveCfg = Release|x86
 		{77BA98E7-D620-4694-954C-92A04D7B591B}.Release|x86.Build.0 = Release|x86
 		{77BA98E7-D620-4694-954C-92A04D7B591B}.Release|x86.Deploy.0 = Release|x86
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Debug|ARM.ActiveCfg = Debug|ARM
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Debug|ARM.Build.0 = Debug|ARM
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Debug|ARM.Deploy.0 = Debug|ARM
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Debug|x64.ActiveCfg = Debug|x64
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Debug|x64.Build.0 = Debug|x64
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Debug|x64.Deploy.0 = Debug|x64
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Debug|x86.ActiveCfg = Debug|x86
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Debug|x86.Build.0 = Debug|x86
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Debug|x86.Deploy.0 = Debug|x86
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Release|Any CPU.ActiveCfg = Release|x86
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Release|ARM.ActiveCfg = Release|ARM
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Release|ARM.Build.0 = Release|ARM
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Release|ARM.Deploy.0 = Release|ARM
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Release|x64.ActiveCfg = Release|x64
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Release|x64.Build.0 = Release|x64
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Release|x64.Deploy.0 = Release|x64
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Release|x86.ActiveCfg = Release|x86
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Release|x86.Build.0 = Release|x86
+		{F9DC76EE-94AB-4FD1-9518-66911FFAD9BD}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
