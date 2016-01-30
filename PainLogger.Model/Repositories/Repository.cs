@@ -19,7 +19,7 @@ namespace PainLogger.Model.Repositories
             set { _elementsList = value; }
         }
 
-        public static StorageFolder LocalFolder => ApplicationData.Current.LocalFolder;
+        public StorageFolder LocalFolder => ApplicationData.Current.LocalFolder;
 
         public virtual async Task AddNew(T element, List<T> list = null)
         {
@@ -62,7 +62,7 @@ namespace PainLogger.Model.Repositories
             return ElementsList.Any(x => x.Id == element.Id);
         }
 
-        private static async Task WriteFile(List<T> list)
+        private async Task WriteFile(List<T> list)
         {
             StorageFile textFile = await LocalFolder.CreateFileAsync(typeof (T).ToString(),
                                                                      CreationCollisionOption.ReplaceExisting);
