@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using MyToolkit.Collections;
 using MyToolkit.Command;
 using MyToolkit.Mvvm;
@@ -17,18 +15,15 @@ namespace PainLogger.UniversalApp.ViewModels
         private MedicineRepository _repository;
         private Medicine _selectedMedicine;
 
-        public MtObservableCollection<Medicine> AllElements { get; private set; }
-
-        public ObservableCollectionView<Medicine> FilteredElements { get; private set; }
-
         public MedicineViewModel()
         {
-            //    DoItCommand = new RelayCommand(DoIt);
-            //  DeleteMedicineAsync = new AsyncRelayCommand<Medicine>(DeleteAsync, medicine => medicine != null);
-              AllElements = new MtObservableCollection<Medicine>();
+            DoItCommand = new RelayCommand(DoIt);
+            DeleteMedicineAsync = new AsyncRelayCommand<Medicine>(DeleteAsync, medicine => medicine != null);
+            AllElements = new MtObservableCollection<Medicine>();
             FilteredElements = new ObservableCollectionView<Medicine>(AllElements);
-
         }
+
+        public MtObservableCollection<Medicine> AllElements { get; private set; }
 
         public AsyncRelayCommand<Medicine> DeleteMedicineAsync { get; private set; }
         public RelayCommand DoItCommand { get; private set; }
@@ -47,6 +42,8 @@ namespace PainLogger.UniversalApp.ViewModels
             }
         }
 
+        public ObservableCollectionView<Medicine> FilteredElements { get; private set; }
+
         public Medicine SelectedMedicine
         {
             get { return _selectedMedicine; }
@@ -56,20 +53,19 @@ namespace PainLogger.UniversalApp.ViewModels
         private async Task DeleteAsync(Medicine medicine)
         {
             await _repository.Delete(medicine);
-            //AllElements.Initialize(_repository.GetAll().Result);
+            AllElements.Initialize(await _repository.GetAll());
         }
 
         private void DoIt()
         {
-            var a = "aaaa";
+            string a = "aaaa";
         }
 
-        public override void Initialize()
+        public override async void Initialize()
         {
             base.Initialize();
             _repository = new MedicineRepository();
-            IEnumerable<Medicine> a = _repository.GetAll().Result.AsEnumerable();
-            AllElements.Initialize(a);
+            AllElements.Initialize(await _repository.GetAll());
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
@@ -11,19 +12,27 @@ namespace PainLogger.Model.Repositories
 {
     public abstract class Repository<T> : IRepository<T> where T : IElement
     {
-        private List<T> _elementsList;
+        private Task<List<T>> _elementsList;
 
-        public List<T> ElementsList
+        private Task<List<T>> ElementsList
         {
-            get { return _elementsList ?? GetAll().Result; }
+            get
+            {
+                if (_elementsList==null)
+                {
+                    return  GetAll();
+                }
+                else
+                return _elementsList;
+            }
             set { _elementsList = value; }
         }
 
         public StorageFolder LocalFolder => ApplicationData.Current.LocalFolder;
 
-        public virtual async Task AddNew(T element, List<T> list = null)
+        public virtual async Task AddNew(T element)
         {
-            ElementsList = list;
+            List<T> list = await ElementsList;
             if (await IsExistst(element) == false)
             {
                 list?.Add(element);
@@ -31,9 +40,9 @@ namespace PainLogger.Model.Repositories
             }
         }
 
-        public virtual async Task Delete(T element, List<T> list = null)
+        public virtual async Task Delete(T element)
         {
-            ElementsList = list;
+            List<T> list = await ElementsList;
             if (await IsExistst(element) == true)
             {
                 list?.Remove(element);
@@ -44,7 +53,7 @@ namespace PainLogger.Model.Repositories
         public virtual async Task<List<T>> GetAll()
         {
             if (await LocalFolder.TryGetItemAsync(typeof (T).ToString()) == null)
-                return null;
+                return new List<T>();
 
             StorageFile textFile = await LocalFolder.GetFileAsync(typeof (T).ToString());
             string content = await FileIO.ReadTextAsync(textFile);
@@ -59,7 +68,8 @@ namespace PainLogger.Model.Repositories
 
         public virtual async Task<bool> IsExistst(T element)
         {
-            return ElementsList.Any(x => x.Id == element.Id);
+            List<T> list = await ElementsList;
+            return list.Any(x => x.Id == element.Id);
         }
 
         private async Task WriteFile(List<T> list)

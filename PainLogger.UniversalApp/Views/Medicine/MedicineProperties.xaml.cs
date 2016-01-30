@@ -9,7 +9,7 @@ namespace PainLogger.UniversalApp.Views
 {
     public sealed partial class MedicineProperties : ContentDialog
     {
-        public readonly MedicineRepository _repository;
+        private readonly MedicineRepository _repository;
 
         public MedicineProperties()
         {
@@ -17,10 +17,14 @@ namespace PainLogger.UniversalApp.Views
             _repository = new MedicineRepository();
         }
 
-        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private async void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            Model.Models.Medicine medicine = new Model.Models.Medicine {Name = TbxName.Text.Trim(), Dosage = Convert.ToDouble(TbxDosage.Text) };
-            _repository.AddNew(medicine);
+            Model.Models.Medicine medicine = new Model.Models.Medicine
+            {
+                Name = TbxName.Text.Trim(),
+                Dosage = Convert.ToDouble(TbxDosage.Text)
+            };
+            await _repository.AddNew(medicine);
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
